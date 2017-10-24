@@ -11,3 +11,5 @@ https://github.com/magento/magento2/labels/Import%2FExport
 * https://github.com/firegento/FireGento_FastSimpleImport2
 * https://github.com/ho-nl/magento2-Ho_Import
 * http://www.unirgy.com/products/urapidflow
+* https://github.com/Agence-DnD/PIMGento-2
+* https://github.com/firebearstudio/importexportfree
