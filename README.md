@@ -34,11 +34,11 @@ Altogether this approach will result in something like a very flexible import/ex
 
 ### What is the necessary functionality?
 
-Parts of the functionality that is needed for bigger projects is already provided by the Magneto core functionality. In most cases, this functionality is **NOT** enough which requires a whole lot of time and costs for our customers to extend/improve it.   
+Parts of the functionality that is needed for bigger projects will already be provided by the Magneto core functionality, for sure. In most cases, this functionality is **NOT** enough which requires a whole lot of time and costs for our customers to extend/improve it.   
 
 #### Which entity types should be supported?
 
-At least, the functionality that should be provided is to import/export
+At least, the functionality that should be provided the import/export of
 
 * Products
   - All Product Types
@@ -64,11 +64,11 @@ Beside the possiblity to import the main [entity types](#which-entity-types-shou
 * Handle multiple import files per import (bunches)
 * Flag/OK file or other mechanism to mark import ready-to-go
 
-> Finally and, in our case propably the most important feature: **NOT** restricted to one process (to utililize all CPU cores if possible/necessary) to make sure, that [Performance/Memory](#what-performance-memory-requirements-do-we-have) targets can be reached.
+> Finally and, in our case propably the most important feature is, **NOT** to restricted the import/export to one process (which prevents it from utililization of all CPU cores if possible/necessary) to make sure, that [performance/memory](#what-performance-memory-requirements-do-we-have) targets can be fulfilled.
 
 #### How should the functionality be integrated?
 
-The functionality should available by the
+The functionality should be available by the
 
 * CLI 
 * Backend
@@ -76,8 +76,10 @@ The functionality should available by the
 
 ### What Performance/Memory requirements do we have?
 
-Performance and memory consumption **MUST** be on an acceptable level. This means, that the import of 100.000+ products should run > 10 minutes on a up-to-date system, with at least 4 Cores and 8 GB RAM.
+Performance and memory consumption **MUST** be on an acceptable level. This means, that the import of 100.000+ SKUs should run > 10 minutes on a up-to-date system, with at least 4 Cores and 8 GB RAM. 
 
-The memory consumption should **NOT** continually raise during the import, but should stop at a configurable peek to make sure that the available resources are **NOT** exeeded.
+Import/Export performance **MUST NOT** go down with a raising number of SKUs. 
 
-Finally performance/memory requirements, as well as the other topics, needs a lot more discussion. This could be a very good base for discussions and will hopefully result in the next community project, after MSI.
+The memory consumption **MUST NOT** continually raise during the import, but should stop at a configurable peek to make sure that the available resources are **NOT** exeeded.
+
+> Finally performance/memory requirements, as well as the other topics, needs a lot more discussion. But this could be a very good base for discussions and will hopefully result in one of the next community projects, after the MSI.
