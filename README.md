@@ -52,6 +52,14 @@ At least, the functionality that should be provided the import/export of
 * Attribute Groups
 * Customers
 
+#### Which operations are necessary?
+
+As the Magento 2 import functionality already provides, the following operations **MUST** be supported
+
+* Add/Update (should also be able to clean-up category relations, images, etc.)
+* Replace (should probably be able to re-use the entity IDs)
+* Delete
+
 #### What looks the basic functionality like?
 
 Beside the possiblity to import the main [entity types](#which-entity-types-should-be-supported), basic functionality for us means
