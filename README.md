@@ -64,7 +64,7 @@ Beside the possiblity to import the main [entity types](#which-entity-types-shou
 * Handle multiple import files per import (bunches)
 * Flag/OK file or other mechanism to mark import ready-to-go
 
-> Finally and, in our case propably the most important feature is, **NOT** to restricted the import/export to one process (which prevents it from utililization of all CPU cores if possible/necessary) to make sure, that [performance/memory](#what-performancememory-requirements-do-we-have) targets can be fulfilled.
+> In our cases, propably the most important feature is, that the import/export is **NOT** restricted to one process (which prevents it from utililization of all CPU cores if possible/necessary) to make sure, that [performance/memory](#what-performancememory-requirements-do-we-have) targets can be fulfilled.
 
 #### How should the functionality be integrated?
 
