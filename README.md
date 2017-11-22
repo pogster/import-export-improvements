@@ -86,7 +86,7 @@ The functionality should be available by the
 
 Performance and memory consumption **MUST** be on an acceptable level. This means, that the import of 100.000+ SKUs should run > 10 minutes on a up-to-date system, with at least 4 Cores and 8 GB RAM. 
 
-Import/Export performance **MUST NOT** go down with a raising number of SKUs. 
+Import/Export performance **MUST NOT** go down with an increasing number of SKUs. 
 
 The memory consumption **MUST NOT** continually raise during the import, but should stop at a configurable peek to make sure that the available resources are **NOT** exeeded.
 
