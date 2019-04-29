@@ -1003,8 +1003,14 @@ class Address extends \Magento\Customer\Model\Address\AbstractAddress implements
         /**
          * Store and website identifiers specified from StoreManager
          */
-        $request->setStoreId($this->storeManager->getStore()->getId());
-        $request->setWebsiteId($this->storeManager->getWebsite()->getId());
+        if ($this->getQuote()->getStoreId()) {
+            $storeId = $this->getQuote()->getStoreId();
+            $request->setStoreId($storeId);
+            $request->setWebsiteId($this->storeManager->getStore($storeId)->getWebsiteId());
+        } else {
+            $request->setStoreId($this->storeManager->getStore()->getId());
+            $request->setWebsiteId($this->storeManager->getWebsite()->getId());
+        }
         $request->setFreeShipping($this->getFreeShipping());
         /**
          * Currencies need to convert in free shipping
@@ -1143,6 +1149,11 @@ class Address extends \Magento\Customer\Model\Address\AbstractAddress implements
             return true;
         }
 
+        $includeDiscount = $this->_scopeConfig->getValue(
+            'sales/minimum_order/include_discount_amount',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
         $amount = $this->_scopeConfig->getValue(
             'sales/minimum_order/amount',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
@@ -1153,9 +1164,12 @@ class Address extends \Magento\Customer\Model\Address\AbstractAddress implements
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $storeId
         );
+
         $taxes = $taxInclude ? $this->getBaseTaxAmount() : 0;
 
-        return ($this->getBaseSubtotalWithDiscount() + $taxes >= $amount);
+        return $includeDiscount ?
+            ($this->getBaseSubtotalWithDiscount() + $taxes >= $amount) :
+            ($this->getBaseSubtotal() + $taxes >= $amount);
     }
 
     /**
